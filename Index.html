@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script>
+      function checkTicket() {
+        var ticketId = document.getElementById('ticketId').value;
+        google.script.run.withSuccessHandler(updateStatus).getTicketStatus(ticketId);
+      }
+      
+      function updateStatus(status) {
+        document.getElementById('status').innerText = status;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Verificar Estado del Boleto</h1>
+    <label for="ticketId">ID del Boleto:</label>
+    <input type="text" id="ticketId" name="ticketId">
+    <button onclick="checkTicket()">Verificar</button>
+    <p id="status"></p>
+  </body>
+</html>
+
